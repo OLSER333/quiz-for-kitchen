@@ -10,10 +10,10 @@ const App = () => {
       type: 'usual',
       header: 'Какой стиль кухни вам нравится?',
       questions: [
-        { label: 'Классический', imgPath: 'q-0-0' }, // либо id + idx question
-        { label: 'Модерн', imgPath: 'q-0-1' },
-        { label: 'Минимализм', imgPath: 'q-0-2' },
-        { label: 'Прованс', imgPath: 'q-0-3' },
+        { label: 'Классический' },
+        { label: 'Модерн' },
+        { label: 'Минимализм' },
+        { label: 'Прованс' },
       ],
     },
     {
@@ -21,10 +21,10 @@ const App = () => {
       type: 'usual',
       header: 'Какой тип кухни вас интерисует?',
       questions: [
-        { label: 'Прямая', imgPath: 'q-0-0' }, // либо id + idx question
-        { label: 'Угловая', imgPath: 'q-0-1' },
-        { label: 'С островом', imgPath: 'q-0-2' },
-        { label: 'П-образная', imgPath: 'q-0-3' },
+        { label: 'Прямая' },
+        { label: 'Угловая' },
+        { label: 'С островом' },
+        { label: 'П-образная' },
       ],
     },
     {
@@ -32,10 +32,10 @@ const App = () => {
       type: 'usual',
       header: 'Выберите материал столешницы?',
       questions: [
-        { label: 'Еровцовый', imgPath: 'q-0-0' }, // либо id + idx question
-        { label: 'Жидкий гранит', imgPath: 'q-0-1' },
-        { label: 'ДСП', imgPath: 'q-0-2' },
-        { label: 'Другое', imgPath: 'q-0-3' },
+        { label: 'Еровцовый' },
+        { label: 'Жидкий гранит' },
+        { label: 'ДСП' },
+        { label: 'Другое' },
       ],
     },
     {
@@ -49,14 +49,39 @@ const App = () => {
       header: 'Чтобы получить результат опроса, заполните форму',
     },
   ])
+  const [curPage, setCurPage] = useState(0)
+  const [quizResults, setQuizResults] = useState([])
+  // Array(arraySize).fill(value)
+
+  function changeCurPage(newCurPage) {
+    setCurPage(newCurPage)
+  }
+
+  function changeQuizResults(id, newValue) {
+    console.log('I here', id, newValue)
+    const list = [...quizResults]
+    list[id] = newValue
+    setQuizResults(list)
+  }
 
   return (
     <>
       <div className="quiz-block">
+        <h1 onClick={() => console.log('results', quizResults)}>Norm</h1>
         <form action="" className="quiz__form">
-          {quizPages.map((el) => (
-            <QuizPage data={el} key={el.id} />
-          ))}
+          {quizPages.map((el) => {
+            return curPage === el.id ? (
+              <QuizPage
+                data={el}
+                key={el.id}
+                curPage={curPage}
+                quizResults={quizResults}
+                quizPagesLength={quizPages.length}
+                onCurPage={(newCurPage) => changeCurPage(newCurPage)}
+                onQuizResults={(newValue) => changeQuizResults(el.id, newValue)}
+              />
+            ) : null
+          })}
         </form>
       </div>
     </>

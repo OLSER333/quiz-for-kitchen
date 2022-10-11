@@ -228,6 +228,12 @@ body {
     color: white;
 }
 
+.disabled-btn {
+    pointer-events: none;
+    cursor: unset;
+    opacity: 0.5;
+}
+
 .img100 {
     width: 100%;
 }

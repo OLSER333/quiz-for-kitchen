@@ -1,15 +1,40 @@
 import React from 'react'
 
 import ProgressBar from '../ProgressBar/ProgressBar'
-// import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
+import UsualQuizView from '../quizPageViews/UsualQuizView'
+import RangePageView from '../quizPageViews/RangePageView'
+import ResultPageView from '../quizPageViews/ResultPageView'
 
-const QuizPage = ({ data }) => {
+const QuizPage = ({
+  data,
+  quizPagesLength,
+  curPage,
+  onCurPage,
+  onQuizResults,
+  quizResults,
+}) => {
   return (
     <div className="quiz_page">
-      {data.type !== 'results' && <ProgressBar />}
+      {data.type !== 'results' && (
+        <ProgressBar length={quizPagesLength} curPage={curPage} />
+      )}
       <div className="header-quiz_page">{data.header}</div>
-      {/*<div className="questions"></div>*/}
-      {/*<ButtonsBlock />*/}
+      {data.type === 'usual' && (
+        <UsualQuizView
+          data={data.questions}
+          id={data.id}
+          quizResults={quizResults}
+          onCurPage={(newPage) => onCurPage(newPage)}
+          onQuizResults={(newValue) => onQuizResults(newValue)}
+        />
+      )}
+      {data.type === 'range' && (
+        <RangePageView
+          id={data.id}
+          onCurPage={(newPage) => onCurPage(newPage)}
+        />
+      )}
+      {data.type === 'results' && <ResultPageView />}
     </div>
   )
 }

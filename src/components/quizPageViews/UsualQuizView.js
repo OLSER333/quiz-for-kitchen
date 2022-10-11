@@ -1,8 +1,8 @@
 import React from 'react'
 
-const UsualQuizView = () => {
-  const imgArr = ['q1-1', 'q1-2', 'q1-3', 'q1-4']
+import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
 
+const UsualQuizView = ({ data, id, quizResults, onCurPage, onQuizResults }) => {
   function importAll(r) {
     let images = {}
     r.keys().map((item) => {
@@ -12,45 +12,32 @@ const UsualQuizView = () => {
   }
 
   const images = importAll(
-    require.context('./img', false, /\.(png|jpe?g|svg)$/)
+    require.context('../../img', false, /\.(png|jpe?g|svg)$/)
   )
-
   return (
-    <div>
-      <label className="quest">
-        <div className="img-input">
-          <input type="radio" name="stil" value="Классический" />
-          <span className="radio">✓</span>
-          {/*<Image path={`./img/${imgArr[0]}.svg`} />*/}
-          <img src={images[`${imgArr[0]}.png`]} />
-        </div>
-        <div className="text-input">Классический</div>
-      </label>
-      <label className="quest">
-        <div className="img-input">
-          <input type="radio" name="stil" value="Модерн" />
-          <span className="radio">✓</span>
-          <img src="../public/img/q1-2.svg" />
-        </div>
-        <div className="text-input">Модерн</div>
-      </label>
-      <label className="quest">
-        <div className="img-input">
-          <input type="radio" name="stil" value="Минимализм" />
-          <span className="radio">✓</span>
-          <img src="../public/img/q1-3.svg" />
-        </div>
-        <div className="text-input">Минимализм</div>
-      </label>
-      <label className="quest">
-        <div className="img-input">
-          <input type="radio" name="stil" value="Прованс" />
-          <span className="radio">✓</span>
-          <img src="../public/img/q1-4.svg" />
-        </div>
-        <div className="text-input">Прованс</div>
-      </label>
-    </div>
+    <>
+      <div className="questions">
+        {data.map((el, idx) => {
+          return (
+            <label key={idx} className="quest">
+              <div className="img-input">
+                <input
+                  onChange={(e) => onQuizResults(e.target.value)}
+                  type="radio"
+                  name={`${id}`}
+                  value={el.label}
+                  checked={el.label === quizResults[id]}
+                />
+                <span className="radio">✓</span>
+                <img src={images[`q-${id}-${idx}.png`]} />
+              </div>
+              <div className="text-input">{el.label}</div>
+            </label>
+          )
+        })}
+      </div>
+      <ButtonsBlock onCurPage={(newPage) => onCurPage(newPage)} id={id} />
+    </>
   )
 }
 

@@ -1,6 +1,8 @@
 import React from 'react'
 
-const RangePageView = () => {
+import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
+
+const RangePageView = ({ id, onCurPage }) => {
   return (
     <>
       <div className="quest4">
@@ -8,6 +10,7 @@ const RangePageView = () => {
         <input type="number" name="ploshad" id="" />
         {/*максимальный Range 200*/}
       </div>
+      <ButtonsBlock id={id} onCurPage={(newPage) => onCurPage(newPage)} />
     </>
   )
 }
