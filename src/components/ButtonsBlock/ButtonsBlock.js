@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ButtonsBlock = ({ onCurPage, id }) => {
+const ButtonsBlock = ({ onCurPage, id, hasData }) => {
   return (
     <div className="buttons-quiz">
       <button
@@ -13,7 +13,7 @@ const ButtonsBlock = ({ onCurPage, id }) => {
       <button
         onClick={() => onCurPage(id + 1)}
         type="button"
-        className="green-btn"
+        className={hasData ? 'green-btn' : 'green-btn disabled-btn'}
       >
         Далее
       </button>

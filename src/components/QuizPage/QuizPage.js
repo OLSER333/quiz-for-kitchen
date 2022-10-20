@@ -31,10 +31,12 @@ const QuizPage = ({
       {data.type === 'range' && (
         <RangePageView
           id={data.id}
+          quizResults={quizResults}
           onCurPage={(newPage) => onCurPage(newPage)}
+          onQuizResults={(newValue) => onQuizResults(newValue)}
         />
       )}
-      {data.type === 'results' && <ResultPageView />}
+      {data.type === 'results' && <ResultPageView quizResults={quizResults} />}
     </div>
   )
 }

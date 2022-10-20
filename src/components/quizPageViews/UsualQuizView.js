@@ -19,7 +19,7 @@ const UsualQuizView = ({ data, id, quizResults, onCurPage, onQuizResults }) => {
       <div className="questions">
         {data.map((el, idx) => {
           return (
-            <label key={idx} className="quest">
+            <label className="questions__label" key={idx}>
               <div className="img-input">
                 <input
                   onChange={(e) => onQuizResults(e.target.value)}
@@ -29,14 +29,22 @@ const UsualQuizView = ({ data, id, quizResults, onCurPage, onQuizResults }) => {
                   checked={el.label === quizResults[id]}
                 />
                 <span className="radio">✓</span>
-                <img src={images[`q-${id}-${idx}.png`]} />
+                <img
+                  className="usual-page-img"
+                  src={images[`q-${id}-${idx}.png`]}
+                  alt={el.label}
+                />
               </div>
               <div className="text-input">{el.label}</div>
             </label>
           )
         })}
       </div>
-      <ButtonsBlock onCurPage={(newPage) => onCurPage(newPage)} id={id} />
+      <ButtonsBlock
+        hasData={quizResults[id]}
+        onCurPage={(newPage) => onCurPage(newPage)}
+        id={id}
+      />
     </>
   )
 }

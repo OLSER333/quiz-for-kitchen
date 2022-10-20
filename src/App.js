@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 
 import QuizPage from './components/QuizPage/QuizPage'
+// import DeleteMe from './components/DeleteMe'
 
 const App = () => {
-  //types: usual, range, last
   const [quizPages] = useState([
     {
       id: 0,
       type: 'usual',
       header: 'Какой стиль кухни вам нравится?',
       questions: [
-        { label: 'Классический' },
-        { label: 'Модерн' },
+        { label: 'Классика' },
+        { label: 'Современная классика' },
         { label: 'Минимализм' },
-        { label: 'Прованс' },
+        { label: 'Другое или еще не знаю' },
       ],
     },
     {
@@ -30,21 +30,44 @@ const App = () => {
     {
       id: 2,
       type: 'usual',
-      header: 'Выберите материал столешницы?',
+      header: 'Выберите материал столешницы',
       questions: [
-        { label: 'Еровцовый' },
-        { label: 'Жидкий гранит' },
-        { label: 'ДСП' },
-        { label: 'Другое' },
+        { label: 'Натуральный камень' },
+        { label: 'Искусственный камень' },
+        { label: 'Пластик' },
+        { label: 'Другое или еще не знаю' },
       ],
     },
     {
       id: 3,
-      type: 'range',
-      header: 'Укажите площадь кухни (м)',
+      type: 'usual',
+      header: 'Выберите материал фасадов',
+      questions: [
+        { label: 'МДФ эмаль' },
+        { label: 'ЛДСП' },
+        { label: 'Пластик' },
+        { label: 'МДФ пленка' },
+      ],
     },
     {
       id: 4,
+      type: 'range',
+      header: 'Укажите примерную длину кухонного гарнитура (м)',
+    },
+
+    {
+      id: 5,
+      type: 'usual',
+      header: 'Как с вами связаться?',
+      questions: [
+        { label: 'WhatsApp' },
+        { label: 'Telegram' },
+        { label: 'По телефону' },
+      ],
+    },
+
+    {
+      id: 6,
       type: 'results',
       header: 'Чтобы получить результат опроса, заполните форму',
     },
@@ -67,8 +90,9 @@ const App = () => {
   return (
     <>
       <div className="quiz-block">
+        {/*<DeleteMe />*/}
         <h1 onClick={() => console.log('results', quizResults)}>Norm</h1>
-        <form action="" className="quiz__form">
+        <div className="quiz__form">
           {quizPages.map((el) => {
             return curPage === el.id ? (
               <QuizPage
@@ -82,7 +106,7 @@ const App = () => {
               />
             ) : null
           })}
-        </form>
+        </div>
       </div>
     </>
   )

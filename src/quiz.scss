@@ -1,0 +1,594 @@
+$vlad-breakpoint : 998px;
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap');
+
+/**/
+
+body {
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.quiz {
+  background-image: url('../public/img/quiz-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 90px 0;
+}
+
+
+.quiz-block {
+  max-width: 1180px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 50px 120px -40px rgb(23 25 25 / 75%);
+  backdrop-filter: blur(25px);
+  border-radius: 50px;
+  padding: 10px 0;
+}
+
+
+.quiz__form {
+  border: 1px dashed rgba(23, 25, 25, 0.4);
+  border-radius: 40px;
+  margin: 0px 10px;
+}
+
+
+.quiz_page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 20px;
+}
+
+
+// ???
+.img100 {
+  width: 100%;
+  @media (max-width:750px) {
+    object-fit: cover;
+    aspect-ratio: 2;
+    border-radius: 20px;
+  }
+}
+
+
+//====progressBar===========================================================
+
+.progress-bar {
+  box-shadow: inset 1px 1px 3px rgb(23 25 25 / 25%);
+  max-width: 820px;
+  width: 100%;
+  display: flex;
+  height: 15px;
+  border-radius: 25px;
+  background: #CCCCCC;
+  margin-top: 40px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width:650px) {
+    height: 8px;
+  }
+}
+
+
+
+.progress-bar span {
+  width: 100%;
+  position: relative;
+  height: inherit;
+
+
+}
+
+.progress-bar span::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #CCCCCC;
+  border-radius: 25px;
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+
+  @media (max-width:650px) {
+    width: 15px;
+    height: 15px;
+    background: #CCCCCC;
+    border-radius: 25px;
+    position: absolute;
+    right: -8px;
+    bottom: -4px;
+  }
+}
+
+.progress-bar span.activ::before {
+  background: #3abd92;
+}
+
+.progress-bar span:nth-child(1) {
+  border-radius: 25px 0 0 25px;
+}
+
+.progress-bar span:last-child {
+  border-radius: 0 25px 25px 0;
+}
+
+.progress-bar span:last-child::before {
+  display: none;
+}
+
+.progress-bar span.activ {
+  background: #3abd92;
+}
+
+//==================================================================
+
+.text-heade_quiz {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 4;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #171919;
+}
+
+.text-heade_quiz span {
+  font-weight: 700;
+  border-bottom: solid 5px #3ECC9D;
+}
+
+.header-quiz_page {
+  margin: 60px 0;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+
+  @media (max-width:650px) {
+    text-align: center;
+    align-self: center;
+    font-size: 20px;
+    margin: 30px 0;
+  }
+}
+
+//===questions===============================================================
+
+.questions {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  @media (max-width:$vlad-breakpoint) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.questions__label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  @media (max-width:$vlad-breakpoint) {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+
+//==quest 3= RANGE-page===============================================================
+
+.quest3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  @media (max-width:$vlad-breakpoint) {
+    align-items: center;
+
+  }
+}
+
+.quest3_result {
+  align-items: center;
+
+}
+.quest3 .range {
+  height: 42px;
+  font-size: 20px;
+  width: 115px;
+}
+
+.quest3 .inp-range {
+  width: 100%;
+}
+
+.range-label {
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.range-count {
+  border-radius: 10px;
+  border: 2px solid #939393;
+  font-size: 20px;
+  padding: 10px 20px 10px 10px;
+  @media (max-width:650px) {
+    padding: 5px 10px 5px 5px;
+
+  }
+  &::placeholder{
+    opacity: 0.4;
+    @media (max-width:650px) {
+      font-size: 16px;
+    }
+  }
+
+
+}
+
+
+//==buttons================================================================
+
+.buttons-quiz {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  gap: 10px;
+}
+
+.buttons-quiz_result {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.buttons-quiz button {
+  cursor: pointer;
+}
+
+.grey-btn {
+  border-radius: 8px;
+  border: 0;
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 5px 50px;
+  color: #39bd92;
+
+  @media (max-width:450px) {
+    padding: 5px 20px;
+  }
+}
+
+.green-btn {
+  background: linear-gradient(180deg, #3ECC9D 0%, #36B189 100%);
+  border-radius: 8px;
+  border: 0;
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 5px 50px;
+  color: white;
+
+  @media (max-width:450px) {
+    padding: 5px 20px;
+  }
+}
+
+.disabled-btn {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+//==input-range================================================================
+input[type='range'] {
+  -webkit-appearance: none !important;
+  background:#36B189;
+  height: 8px;
+  cursor: e-resize;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background:#fff;
+  height:30px;
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 8px #36B189 inset;
+}
+
+input[type='range']::-webkit-slider-thumb::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fff;
+  width: 5px;
+  height: 5px;
+  z-index: 10;
+}
+
+
+
+
+//input[type='range'] {
+//  width: 400px;
+//  height: 15px;
+//  -webkit-appearance: none;
+//  //background: #111;
+//  outline: none;
+//  border-radius: 15px;
+//  overflow: hidden;
+//  box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+//}
+//input[type='range']::-webkit-slider-thumb {
+//  -webkit-appearance: none;
+//  width: 15px;
+//  height: 15px;
+//  border-radius: 50%;
+//  background: #00fd0a;
+//  cursor: pointer;
+//  border: 4px solid #333;
+//  //box-shadow: -407px 0 0 400px #00fd0a;
+//}
+//
+//input[type='range']::-webkit-slider-thumb::before {
+//  content: '';
+//  position: absolute;
+//  left: 0;
+//  top: 0;
+//  background: #fff;
+//  width: 5px;
+//  height: 5px;
+//  z-index: 10;
+//}
+
+
+
+
+
+
+
+
+
+
+//==input================================================================
+
+.text-input {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  @media (max-width:$vlad-breakpoint) {
+    text-align: left;
+  }
+  @media (max-width:450px) {
+    font-size: 18px;
+  }
+}
+
+.img-input {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.img-input_range {
+  justify-content: unset;
+}
+
+.img-input>input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  display: block;
+  height: 0;
+  width: 0;
+}
+
+
+
+.img-input>input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  display: block;
+  height: 0;
+  width: 0;
+  justify-content: unset;
+}
+
+.radio {
+  width: 41px;
+  height: 41px;
+  background: #F5F5F5;
+  border: none;
+  margin: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  color: #CCCCCC;
+
+
+  bottom: -20px
+
+}
+
+.radio-range {
+  left: -50px;
+  bottom: -25px;
+}
+.img-input input:checked+.radio {
+  background: linear-gradient(180deg, #3ECC9D 0%, #36B189 100%);
+  color: white;
+}
+
+.usual-page-img {
+  @media (max-width:$vlad-breakpoint) {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 20px;
+    width: 100px;
+  }
+}
+
+
+//==================================================================
+/*pageResult*/
+.quest3-sub-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 18px;
+  color: #383838;
+  gap: 10px
+
+}
+
+.quest3-sub-text {
+  @media (max-width:550px) {
+    max-width: 260px
+  }
+}
+
+.quest3-sub-text .green-underline {
+  font-weight: 700;
+  border-bottom: 4px solid #3ECC9D;
+}
+
+
+
+.quiz-submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+}
+
+
+
+.quest3-userdata-inps {
+  display: flex;
+  gap: 10px;
+  @media (max-width:$vlad-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.quest3-userdata-inps input{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 7px 13px;
+  gap: 13px;
+  font-size: 20px;
+  width: 300px;
+  height: 47px;
+
+  /* white/1 */
+
+  background: #FFFFFF;
+  /* white/3 */
+
+  border: 2px solid #BBC3C7;
+  border-radius: 5px;
+
+  @media (max-width:$vlad-breakpoint) {
+    height: unset;
+    width: unset;
+    max-width: 300px;
+    padding: 12px;
+  }
+  &::placeholder {
+    //font-size: 20px;
+    opacity: 0.4;
+  }
+}
+
+.quest3-userdata-inps label {
+
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 13px;
+  letter-spacing: 0.07em;
+
+  /* black/4 */
+
+  color: #535353;
+}
+.username-inp {
+
+}
+
+.userphone {
+}
+
+.green-btn {
+}
+
+.green-txt {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #3ECC9D;
+  text-align: center;
+}
+
+.policy-txt {
+  text-align: center;
+}
