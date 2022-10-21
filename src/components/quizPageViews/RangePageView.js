@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import imgPath from '../../img/q-3.png'
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
-// data, id, quizResults, onCurPage, onQuizResults
 const maxRange = 1000
 
 const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
@@ -63,7 +62,6 @@ const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
           onChange={(e) => validInp(e.target.value, 'range')}
           value={range}
         />
-        {/*максимальный Range === maxRange*/}
         <input
           onChange={(e) => validInp(e.target.value, 'range')}
           type="range"

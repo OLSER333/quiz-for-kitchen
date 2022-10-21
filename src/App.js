@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
 import QuizPage from './components/QuizPage/QuizPage'
-// import DeleteMe from './components/DeleteMe'
-// import DeleteMe from './components/DeleteMe'
 
 const App = () => {
   const [quizPages] = useState([
@@ -75,7 +73,6 @@ const App = () => {
   ])
   const [curPage, setCurPage] = useState(0)
   const [quizResults, setQuizResults] = useState([])
-  // Array(arraySize).fill(value)
 
   function changeCurPage(newCurPage) {
     setCurPage(newCurPage)
@@ -91,8 +88,6 @@ const App = () => {
   return (
     <>
       <div className="quiz-block">
-        {/*<DeleteMe />*/}
-        <h1 onClick={() => console.log('results', quizResults)}>Norm</h1>
         <div className="quiz__form">
           {quizPages.map((el) => {
             return curPage === el.id ? (
