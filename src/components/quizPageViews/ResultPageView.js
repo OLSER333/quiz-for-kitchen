@@ -95,10 +95,18 @@ const ResultPageView = ({ quizResults }) => {
             </button>
           </div>
         </form>
-        <p className="policy-txt">
-          C политикой конфиденцеальности вы можете ознакомиться, перейдя по
-          <a className="green-txt">&#32;ссылке</a>
-        </p>
+        <div className="wrap-txt">
+          <p className="policy-txt">
+            C политикой конфиденцеальности вы можете ознакомиться, перейдя по
+          </p>
+          <a
+            href="#"
+            style={{ transform: ' translateX(5px)' }}
+            className="green-txt"
+          >
+            ссылке
+          </a>
+        </div>
       </div>
     </>
   )

@@ -1,41 +1,41 @@
-// import React, { useRef } from 'react'
-// import emailjs from '@emailjs/browser'
-//
-// const DeleteMe = () => {
-//   const form = useRef()
-//
-//   const sendEmail = (e) => {
-//     e.preventDefault()
-//
-//     // eslint-disable-next-line import/no-named-as-default-member
-//     emailjs
-//       .sendForm(
-//         'service_xatpbap',
-//         'template_rpemdub',
-//         form.current,
-//         'fPQvBdi_HBTIv0MXD'
-//       )
-//       .then(
-//         (result) => {
-//           console.log(result.text)
-//         },
-//         (error) => {
-//           console.log(error.text)
-//         }
-//       )
-//   }
-//
-//   return (
-//     <form ref={form} onSubmit={sendEmail}>
-//       <label>Name</label>
-//       <input type="text" name="from_name" />
-//       <label>Email</label>
-//       <input type="email" name="user_email" />
-//       <label>Message</label>
-//       <textarea name="message" />
-//       <input type="submit" value="Send" />
-//     </form>
-//   )
-// }
-//
-// export default DeleteMe
+import { Transition } from 'react-transition-group'
+import { useEffect, useState } from 'react'
+
+function DeleteMe() {
+  const duration = 3000
+
+  const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+  }
+
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+  }
+
+  useEffect(() => {
+    setInProp(true)
+  }, [])
+
+  const [inProp, setInProp] = useState(false)
+
+  return (
+    <Transition in={inProp} timeout={duration}>
+      {(state) => (
+        <div
+          style={{
+            ...defaultStyle,
+            ...transitionStyles[state],
+          }}
+        >
+          Im a fade Transition!
+        </div>
+      )}
+    </Transition>
+  )
+}
+
+export default DeleteMe

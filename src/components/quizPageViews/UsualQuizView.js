@@ -1,5 +1,3 @@
-import React from 'react'
-
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
 
 const UsualQuizView = ({ data, id, quizResults, onCurPage, onQuizResults }) => {
@@ -14,6 +12,7 @@ const UsualQuizView = ({ data, id, quizResults, onCurPage, onQuizResults }) => {
   const images = importAll(
     require.context('../../img', false, /\.(png|jpe?g|svg)$/)
   )
+
   return (
     <>
       <div className="questions">

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import QuizPage from './components/QuizPage/QuizPage'
 // import DeleteMe from './components/DeleteMe'
+// import DeleteMe from './components/DeleteMe'
 
 const App = () => {
   const [quizPages] = useState([
@@ -57,7 +58,7 @@ const App = () => {
 
     {
       id: 5,
-      type: 'usual',
+      type: 'callback',
       header: 'Как с вами связаться?',
       questions: [
         { label: 'WhatsApp' },
