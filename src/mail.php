@@ -15,7 +15,7 @@ $headers = array(
 'X-Mailer' => 'PHP/' . phpversion()
 );
 $subject = "Заявка с сайта PRO-REMONT";
-$message = "\n\nТелефон: $phone \n\nИмя: \n$name";
+$message = "\n\nТелефон: $phone \n\nИмя: $name\n\nСтиль: $style\n\nТип: $type\n\nМатериал столешницы: $countertop\n\nМатериал фасада: $facade\n\nРазмер гарнитура: $size\n\nОбратная связь: $callback\n\n";
 $send = mail ($to, $subject, $message, $headers);
 }
 ?>

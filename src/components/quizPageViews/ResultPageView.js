@@ -96,25 +96,27 @@ const ResultPageView = ({ quizResults }) => {
 
         {sent && (
           <div>
-            <h1>Спасибо, мы свяжемся с вами!</h1>
+            <h1 className="after-send-txt">Спасибо, мы свяжемся с вами!</h1>
           </div>
         )}
         {hasError && (
           <div>
-            <h1>Что-то пошло не так, попробуйте заново!</h1>
+            <h1 className="after-send-txt">
+              Что-то пошло не так, попробуйте заново!
+            </h1>
           </div>
         )}
         <div className="wrap-txt">
           <p className="policy-txt">
-            C политикой конфиденцеальности вы можете ознакомиться, перейдя по
+            C политикой конфиденцеальности вы можете ознакомиться, перейдя по{' '}
+            <a
+              href="#"
+              style={{ transform: ' translateX(5px)' }}
+              className="green-txt"
+            >
+              ссылке
+            </a>
           </p>
-          <a
-            href="#"
-            style={{ transform: ' translateX(5px)' }}
-            className="green-txt"
-          >
-            ссылке
-          </a>
         </div>
       </div>
     </>

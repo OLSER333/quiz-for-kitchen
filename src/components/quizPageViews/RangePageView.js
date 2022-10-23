@@ -18,13 +18,11 @@ const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
   }, [])
 
   const validInp = (val, type) => {
-    console.log('now val', val)
     switch (type) {
       case 'range':
         setNeedMeasurer(false)
         // eslint-disable-next-line no-case-declarations
         let validVal = val.replace(/\D/, '')
-        console.log('validVal', validVal)
         if (validVal > maxRange) {
           setRange(String(maxRange))
           onQuizResults(String(maxRange))

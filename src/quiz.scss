@@ -38,6 +38,7 @@ a {
   border: 1px dashed rgba(23, 25, 25, 0.4);
   border-radius: 40px;
   margin: 0px 10px;
+
 }
 
 
@@ -49,6 +50,9 @@ a {
   align-items: center;
   align-content: center;
   padding: 20px;
+  @media (max-width:400px) {
+    padding: 10px
+  }
 }
 
 
@@ -242,6 +246,12 @@ a {
 .range-label {
   margin-left: 50px;
   cursor: pointer;
+  @media (max-width:$vlad-breakpoint) {
+    align-self: flex-start;
+  }
+  @media (max-width:400px) {
+    max-width: 160px;
+  }
 }
 
 .range-count {
@@ -249,6 +259,9 @@ a {
   border: 2px solid #939393;
   font-size: 20px;
   padding: 10px 20px 10px 10px;
+  @media (max-width:$vlad-breakpoint) {
+    align-self: flex-start;
+  }
   @media (max-width:650px) {
     padding: 5px 10px 5px 5px;
 
@@ -488,6 +501,9 @@ input[type='range']::-webkit-slider-thumb::before {
 .radio-range {
   left: -50px;
   bottom: -25px;
+  @media (max-width:400px) {
+    bottom: -40px;
+  }
 }
 .img-input input:checked+.radio {
   background: linear-gradient(180deg, #3ECC9D 0%, #36B189 100%);
@@ -597,6 +613,14 @@ input[type='range']::-webkit-slider-thumb::before {
 }
 .username-inp {
 
+}
+
+.after-send-txt {
+  text-align: center;
+  font-size: 32px;
+  @media (max-width:650px) {
+    font-size: 25px;
+  }
 }
 
 .userphone {

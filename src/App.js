@@ -79,7 +79,6 @@ const App = () => {
   }
 
   function changeQuizResults(id, newValue) {
-    console.log('I here', id, newValue)
     const list = [...quizResults]
     list[id] = newValue
     setQuizResults(list)
