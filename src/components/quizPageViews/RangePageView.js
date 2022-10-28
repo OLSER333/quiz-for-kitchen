@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 import imgPath from '../../img/q-3.png'
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
-const maxRange = 1000
+const maxRange = 500
+const minRange = 1
 
 const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
   const [needMeasurer, setNeedMeasurer] = useState(false)
@@ -53,7 +54,7 @@ const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
         <input
           className="range-count"
           type="number"
-          min={0}
+          min={minRange}
           max={maxRange}
           name="ploshad"
           placeholder="метры"
@@ -64,8 +65,13 @@ const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
           onChange={(e) => validInp(e.target.value, 'range')}
           type="range"
           className="inp-range"
+          style={{
+            background: `linear-gradient(to right, #36B189 0%, #36B189 ${
+              (range * 100) / maxRange
+            }%, #CCCCCC ${(range * 100) / maxRange}%, #CCCCCC 100%)`,
+          }}
           name="range1"
-          min={0}
+          min={minRange}
           max={maxRange}
           step="1"
           value={range}

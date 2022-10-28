@@ -110,7 +110,8 @@ const ResultPageView = ({ quizResults }) => {
           <p className="policy-txt">
             C политикой конфиденцеальности вы можете ознакомиться, перейдя по{' '}
             <a
-              href="#"
+              href="/conf-policy.html"
+              target={'_blank'}
               style={{ transform: ' translateX(5px)' }}
               className="green-txt"
             >
