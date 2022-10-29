@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import imgPath from '../../img/q-3.png'
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
 const maxRange = 500
-const minRange = 1
+const minRange = 0
 
 const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
   const [needMeasurer, setNeedMeasurer] = useState(false)
@@ -15,7 +15,7 @@ const RangePageView = ({ id, onCurPage, quizResults, onQuizResults }) => {
     if (quizResults[id] === labelForResult) {
       setNeedMeasurer(quizResults[id] || false)
     }
-    setRange(quizResults[id] || '')
+    setRange(quizResults[id] || '0')
   }, [])
 
   const validInp = (val, type) => {
